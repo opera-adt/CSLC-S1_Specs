@@ -1,0 +1,1136 @@
+<?xml version="1.0"?>
+<algorithm name="L2_GeocodedSingleLookComplex"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="">
+    <product template="L2_RTC_template">
+    <!-- Start of the science section of product -->
+    <science uid="sci_1">
+      <!-- Global attributes for the product -->
+      <annotation app="conformance" Conventions="CF-1.8"
+                                    title="OPERA L2_CSLC_S1 Product"
+                                    institution="NASA JPL"
+                                    mission_name="OPERA"
+                                    reference_document="TBD"
+                                    contact="operaops@jpl.nasa.gov"/>
+      <!-- End of global attributes for the product -->
+
+      <nodes>
+        <!-- Product Identification -->
+        <integer name="/identification/absolute_orbit_number"
+                 shape="scalar"
+                 signed="false"
+                 width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Absolute orbit number</annotation>
+        </integer>
+        <integer name="/identification/track_number"
+                 shape="scalar"
+                 signed="false"
+                 width="8">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Track number</annotation>
+        </integer>
+        <string name="/identification/burst_id"
+                shape="scalar"
+                length="10">
+          <annotation app="conformance"
+                      lang="en">Burst identification string (burst ID)</annotation>
+        </string>
+        <string length="0"
+                name="/identification/instrument_name"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Instrument name</annotation>
+        </string>
+        <string length="0"
+                name="/identification/product_type"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Product type</annotation>
+        </string>
+        <string length="0"
+                name="/identification/product_version"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">CSLC-S1 product version</annotation>
+        </string>
+        <string length="0"
+                name="/identification/product_specification_version"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">CSLC-S1 product specification version</annotation>
+        </string>
+        <string length="0"
+                name="/identification/look_direction"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Look direction can be left or right</annotation>
+        </string>
+        <string length="0"
+                name="/identification/mission_id"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Mission identifier</annotation>
+        </string>
+        <string length="0"
+                name="/identification/orbit_pass_direction"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Orbit direction can be ascending or descending</annotation>
+        </string>
+        <string length="27"
+                name="/identification/zero_doppler_start_time"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Azimuth start time of the product</annotation>
+        </string>
+        <string length="27"
+                name="/identification/zero_doppler_end_time"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Azimuth stop time of the product</annotation>
+        </string>
+        <string  length="0"
+                 name="/identification/processing_center"
+                 shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Name of the processing center that produced the product</annotation>
+        </string>
+        <string length="0"
+                name="/identification/is_geocoded"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Boolean to indicate if product is in radar geometry or geocoded</annotation>
+        </string>
+        <string length="0"
+                name="/identification/product_level"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">L0A: Unprocessed instrument data; L0B: Reformatted,
+              unprocessed instrument data; L1: Processed instrument data in radar coordinates system;
+              and L2: Processed instrument data in geocoded coordinates system</annotation>
+        </string>
+        <string length="0"
+                name="/identification/bounding_polygon"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">OGR compatible WKT representation of bounding polygon of the image</annotation>
+                <annotation app="conformance"
+                            ogr_geometry="polygon"
+                            epsg="4326"
+                            units="degrees"></annotation>
+        </string>
+        <string length="0"
+                name="/identification/radar_band"
+                shape="scalar">
+          <annotation app="conformance"
+                      lang="en">Radar band</annotation>
+        </string>
+        <string length="0"
+                name="/identification/processing_date_time"
+                shape="scalar">
+            <annotation app="conformance"
+                          lang="en">Data processing date and time</annotation>
+        </string>
+        <!-- End of product identification -->
+
+        <!-- Main layers for data -->
+        <!-- Scalars -->
+        <real name="/data/y_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along Y-direction</annotation>
+        </real>
+        <real name="/data/x_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along X-direction</annotation>
+        </real>
+
+        <!-- 1D arrays / dimensions -->
+        <real name="/data/x_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the X coordinate</annotation>
+        </real>
+        <real name="/data/y_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the Y coordinate</annotation>
+        </real>
+
+        <!-- 2D CF compliant rasters -->
+        <!-- Number of layers in actual product will depend on list of available polarizations above -->
+        <complex name="/data/VV"
+                 shape="CSLCProductShape"
+                 width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">VV geocoded CSLC image</annotation>
+          <annotation app="io" />
+        </complex>
+        <real name="/data/azimuth_carrier_phase"
+              shape="CSLCProductShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Azimuth carrier phase</annotation>
+          <annotation app="io" />
+        </real>
+        <real name="/data/flattening_phase"
+              shape="CSLCProductShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Flattening phase</annotation>
+          <annotation app="io" />
+        </real>
+
+        <!-- Calibration information -->
+        <!-- Scalars -->
+        <real name="/metadata/calibration_information/y_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along Y-direction</annotation>
+        </real>
+        <real name="/metadata/calibration_information/x_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along X-direction</annotation>
+        </real>
+        <string length="0"
+                name="/metadata/calibration_information/azimuth_time"
+                shape="scalar">
+            <annotation app="conformance"
+                          lang="en">Zero Doppler azimuth time at which calibration vector applies (format: YYYY-MM-DD HH:MM:SS.6f)</annotation>
+        </string>
+        <real name="/metadata/calibration_information/beta_naught"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Beta naught</annotation>
+        </real>
+        <!-- 1D arrays-->
+        <real name="/metadata/calibration_information/x_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the X coordinate</annotation>
+        </real>
+        <real name="/metadata/calibration_information/y_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the Y coordinate</annotation>
+        </real>
+        <!-- 2D rasters-->
+        <real name="/metadata/calibration_information/dn"
+              shape="LutShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Digital number calibration look-up table</annotation>
+          <annotation app="io" />
+        </real>
+        <real name="/metadata/calibration_information/gamma"
+              shape="LutShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Gamma calibration look-up table</annotation>
+          <annotation app="io" />
+        </real>
+        <real name="/metadata/calibration_information/sigma_naught"
+              shape="LutShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Sigma naught calibration look-up table</annotation>
+          <annotation app="io" />
+        </real>
+        <!-- Noise information -->
+        <!-- Scalars -->
+        <real name="/metadata/noise_information/y_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along Y-direction</annotation>
+        </real>
+        <real name="/metadata/calibration_information/x_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of the geographical grid along X-direction</annotation>
+        </real>
+        <string length="0"
+                name="/metadata/calibration_information/range_azimuth_time"
+                shape="scalar">
+            <annotation app="conformance"
+                          lang="en">Range azimuth time (format: YYYY-MM-DD HH:MM:SS.6f)</annotation>
+        </string>
+        <!-- 1D arrays-->
+        <real name="/metadata/noise_information/x_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the X coordinate</annotation>
+        </real>
+        <real name="/metadata/noise_information/y_coordinates"
+              shape=""
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">CF compliant dimension associated with the Y coordinate</annotation>
+        </real>
+        <real name="/metadata/noise_information/thermal_noise_lut"
+              shape="LutShape"
+              width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Thermal noise correction look-up table</annotation>
+          <annotation app="io" />
+        </real>
+
+        <!-- Orbit information -->
+        <!-- Scalars -->
+        <string length="100"
+                name="/metadata/orbit/reference_epoch"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Reference epoch of the state vector (format: YYYY-MM-DD HH:MM:SS.6f)</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/orbit/orbit_direction"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Direction of sensor orbit ephemeris (e.g., ascending, descending)</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/orbit/orbit_type"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">PrOE (or) NOE (or) MOE (or) POE (or) Custom</annotation>
+        </string>
+        <!-- 1D vectors -->
+        <real name="/metadata/orbit/position_x"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Platform position along x-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/position_y"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Platform position along y-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/position_z"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Platform position along z-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/velocity_x"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters per second">Platform velocity along x-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/velocity_y"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters per second">Platform velocity along y-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/velocity_z"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters per second">Platform velocity along z-direction with respect to WGS84 G1762 reference frame</annotation>
+        </real>
+        <real name="/metadata/orbit/time"
+              shape="orbitShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Time of the orbit state vectors relative to the reference epoch</annotation>
+        </real>
+
+        <!-- Processing information -->
+        <string length="100"
+                name="/metadata/processing_information/runconfig"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Runconfiguration file used for processing</annotation>
+        </string>
+        <!-- Processing information: algorithms -->
+        <string length="100"
+                name="/metadata/processing_information/algorithms/COMPASS_version"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">COMPASS (CSLC-S1 processor) version used for processing</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/algorithms/ISCE3_version"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">ISCE3 version used for processing</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/algorithms/S1Reader_version"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">S1 reader version used for processing</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/algorithms/dem_interpolation"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">DEM interpolation method</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/algorithms/geocoding_interpolator"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Geocoding interpolation method</annotation>
+        </string>
+
+        <!-- Processing information: input burst metadata -->
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_steering_rate"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="degrees per second">Azimuth steering rate of IW and EW modes</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_time_interval"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Time spacing between azimuth lines of the burst</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/center"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="degrees">Longitude, latitude center of burst</annotation>
+        </real>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/ipf_version"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Image Processing Facility software version</annotation>
+        </string>
+        <real name="/metadata/processing_information/input_burst_metadata/iw2_mid_range"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Slant range of the middle of the IW2 swath</annotation>
+        </real>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/platform_id"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Sensor platform identification string (e.g., S1A or S1B)</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/polarization"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Polarization of the burst</annotation>
+        </string>
+        <real name="/metadata/processing_information/input_burst_metadata/prf_raw_data"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="Hertz">Pulse repetition frequency (PRF) of the raw data</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/radar_center_frequency"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="Hertz">Radar center frequency</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/range_bandwidth"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="Hertz">Slant range bandwidth of the signal</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/range_chirp_rate"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="Hertz">Range chirp rate</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/range_pixel_spacing"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Pixel spacing between slant range samples in the input burst SLC</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/range_sampling_rate"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="Hertz">Sampling rate of slant range in the input burst SLC</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/range_window_coefficient"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Value of the weighting window coefficient used during processing</annotation>
+        </real>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/range_window_type"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Name of the weighting window type used during processing</annotation>
+        </string>
+        <integer name="/metadata/processing_information/input_burst_metadata/rank"
+                 shape="scalar"
+                 signed="false"
+                 width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">The number of Pulse Repetition Intervals (PRI) between transmitted pulse and return echo</annotation>
+        </integer>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/sensing_start"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Sensing start time of the burst (format: YYYY-MM-DD HH:MM:SS.6f)</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/input_burst_metadata/sensing_stop"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Sensing stop time of the burst (format: YYYY-MM-DD HH:MM:SS.6f)</annotation>
+        </string>
+        <integer name="/metadata/processing_information/input_burst_metadata/shape"
+                 shape=""
+                 signed="false"
+                 width="32">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Shape (length, width) of the burst in radar coordinates</annotation>
+        </integer>
+        <real name="/metadata/processing_information/input_burst_metadata/slant_range_time"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Two-way slant range time of Doppler centroid frequency estimate</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/starting_range"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Slant range of the first sample of the input burst</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/wavelength"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Wavelength of the transmitted signal</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_fm_rate/coeffs"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Azimuth FM-rate polynomial coefficients</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_fm_rate/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Mean of the polynomial</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_fm_rate/order"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Order of the polynomial</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_fm_rate/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Standard deviation of the polynomial</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/doppler/coeffs"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Doppler polynomial coefficients</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/doppler/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Mean of the polynomial</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/doppler/order"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Order of the polynomial</annotation>
+        </real>
+        <real name="/metadata/processing_information/input_burst_metadata/azimuth_fm_rate/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Standard deviation of the polynomial</annotation>
+        </real>
+        <!-- Processing information: parameters -->
+        <bool length="100"
+                name="/metadata/processing_information/parameters/azimuth_fm_rate_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, azimuth FM-rate mismatch timing correction has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/azimuth_solid_earth_tides_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, solid Earth tides correction has been applied in azimuth direction</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/bistatic_delay_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, bistatic delay timing correction has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/dry_troposphere_weather_model_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, dry troposphere correction based on weather model has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/ellipsoidal_flattening_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, CSLC-S1 phase has been flatten with respect to a zero height ellipsoid</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/geometry_doppler_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, geometry steering doppler timing correction has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/ionosphere_tec_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, ionosphere correction based on TEC data has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/los_solid_earth_tides_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, solid Earth tides correction has been applied in slant range direction</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/static_troposphere_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, troposphere correction based on a static model has been applied</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/topographic_flattening_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, CSLC-S1 phase has been flattened with respect to topographic height using a DEM</annotation>
+        </bool>
+        <bool length="100"
+                name="/metadata/processing_information/parameters/wet_troposphere_weather_model_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">If True, wet troposphere correction based on weather model has been applied</annotation>
+        </bool>
+        <!-- Processing information: timing corrections -->
+        <real name="metadata/processing_information/timing_corrections/slant_range_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Spacing of slant range of LUT data</annotation>
+        </real>
+        <real name="metadata/processing_information/timing_corrections/zero_doppler_time_spacing"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Azimuth time of LUT data</annotation>
+        </real>
+        <real name="metadata/processing_information/timing_corrections/slant_range"
+              shape="correctionsLutWidth"
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="meters">Slant range vector of LUT data</annotation>
+        </real>
+        <real name="metadata/processing_information/timing_corrections/zero_doppler_time"
+              shape="correctionsLutLength"
+              width="64">
+              <annotation app="conformance"
+                          lang="en"
+                          units="seconds">Zero Doppler time vector of LUT data</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/azimuth_fm_rate_mismatch"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Azimuth FM-rate mismatch mitigation (azimuth) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/azimuth_solid_earth_tides"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Solid Earth tides (azimuth) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/bistatic_delay"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Bistatic delay (azimuth) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/geometry_steering_doppler"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Geometry steering Doppler (range) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/los_ionospheric_delay"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Ionospheric delay (range) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/los_solid_earth_tides"
+              shape="correctionsLutShape"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Solid Earth tides (range) correction as a function of slant range and azimuth time</annotation>
+        </real>
+        <string length="100"
+                name="/metadata/processing_information/timing_corrections/extended_coefficients/doppler_centroid_azimuth_time"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Azimuth time for doppler centroid coefficient data (format: YYYY-MM-DD HH:MM:SS.6f) </annotation>
+        </string>
+        <real name="/metadata/processing_information/timing_corrections/extended_coefficients/doppler_centroid_coefficients"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Doppler centroid coefficient data</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/extended_coefficients/doppler_centroid_slant_range_time"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Slant range time for doppler centroid coefficient data</annotation>
+        </real>
+        <string length="100"
+                name="/metadata/processing_information/timing_corrections/extended_coefficients/fm_rate_azimuth_time"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Azimuth time for FM rate coefficient data (format: YYYY-MM-DD HH:MM:SS.6f) </annotation>
+        </string>
+        <real name="/metadata/processing_information/timing_corrections/extended_coefficients/fm_rate_coefficients"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">FM rate coefficient data</annotation>
+        </real>
+        <real name="/metadata/processing_information/timing_corrections/extended_coefficients/fm_rate_slant_range_time"
+              shape=""
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Slant range time for FM rate coefficient data</annotation>
+        </real>
+        <!-- Quality assurance -->
+        <string length="100"
+                name="/metadata/quality_assurance/orbit_information/orbit_type"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Type of orbit file used in processing</annotation>
+        </string>
+        <real name="/metadata/quality_assurance/pixel_classification/percent_land_pixels"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Percentage of output pixels labeled as land</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/pixel_classification/percent_valid_pixels"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Percentage of output pixels are valid</annotation>
+        </real>
+        <bool length="100"
+                name="/metadata/quality_assurance/rfi_information/is_rfi_info_available"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Whether or not RFI information is available</annotation>
+        </bool>
+        <string length="100"
+                name="/metadata/quality_assurance/rfi_information/rfi_burst_report"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Burst RFI report</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/quality_assurance/rfi_information/rfi_mitigation_domain"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Burst RFI report</annotation>
+        </string>
+        <bool length="100"
+                name="/metadata/quality_assurance/rfi_information/rfi_mitigation_performed"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Whether or not the RFI mitigation step was performed</annotation>
+        </bool>
+        <real name="/metadata/quality_assurance/statistics/data/VV/phase/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Max of the phase of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/phase/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Mean of the phase of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/phase/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Min of the phase of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/phase/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">STD of the phase of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/power/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Max of the power of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/power/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Mean of the power of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/power/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">Min of the power of VV geocoded SLC</annotation>
+        </real>
+        <real name="/metadata/quality_assurance/statistics/data/VV/power/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="radians">STD of the power of VV geocoded SLC</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_fm_rate_mismatch/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Max of the azimuth FM-rate mismatch</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_fm_rate_mismatch/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Mean of the azimuth FM-rate mismatch</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_fm_rate_mismatch/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Min of the azimuth FM-rate mismatch</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_fm_rate_mismatch/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">STD of the azimuth FM-rate mismatch</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/bistatic_delay/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Max of the bistatic delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/bistatic_delay/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Mean of the bistatic delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/bistatic_delay/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Min of the bistatic delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/bistatic_delay/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">STD of the bistatic delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Max of the azimuth solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Mean of the azimuth solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">Min of the azimuth solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="seconds">STD of the azimuth solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_solid_earth_tides/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Max of the range solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_solid_earth_tides/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Mean of the range solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_solid_earth_tides/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Min of the range solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_solid_earth_tides/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">STD of the range solid Earth tides</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/geometry_steering_doppler/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Max of the geometry steering doppler</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/geometry_steering_doppler/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Mean of the geometry steering doppler</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/geometry_steering_doppler/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Min of the geometry steering doppler</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/geometry_steering_doppler/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">STD of the geometry steering doppler</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_ionosphere_delay/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Max of the los ionosphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_ionosphere_delay/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Mean of the los ionosphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_ionosphere_delay/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Min of the los ionosphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/los_ionosphere_delay/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">STD of the los ionosphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Max of the dry troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Mean of the dry troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Min of the dry troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">STD of the dry troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/max"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Max of the wet troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/mean"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Mean of the wet troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/min"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">Min of the wet troposphere delay</annotation>
+        </real>
+        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/std"
+              shape="scalar"
+              width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="meters">STD of the wet troposphere delay</annotation>
+        </real>
+
+      </nodes>
+    </science>
