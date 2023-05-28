@@ -2,7 +2,7 @@
 <algorithm name="L2_GeocodedSingleLookComplex"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:noNamespaceSchemaLocation="">
-    <product template="L2_RTC_template">
+    <product template="L2_CSLC_template">
     <!-- Start of the science section of product -->
     <science uid="sci_1">
       <!-- Global attributes for the product -->
