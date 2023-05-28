@@ -628,6 +628,83 @@
                       lang="en"
                       units="unitless">Standard deviation of the polynomial</annotation>
         </real>
+        <!-- Processing information: inputs -->
+        <string length="100"
+                name="/metadata/processing_information/inputs/calibration_file"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Input calibration file used</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/inputs/dem_source"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Source DEM file</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/inputs/l1_slc_files"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Input L1 RSLC file used</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/inputs/noise_file"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Input noise file used</annotation>
+        </string>
+        <string length="100"
+                name="/metadata/processing_information/inputs/orbit_files"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">List of input orbit files used</annotation>
+        </string>
+        <integer name="/metadata/processing_information/inputs/burst_location_parameters/burst_index"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Burst index relative other bursts in swath</annotation>
+        </integer>
+        <integer name="/metadata/processing_information/inputs/burst_location_parameters/first_valid_line"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">First valid line for burst in measurement tiff</annotation>
+        </integer>
+        <integer name="/metadata/processing_information/inputs/burst_location_parameters/first_valid_sample"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">First valid sample for burst in measurement tiff</annotation>
+        </integer>
+        <integer name="/metadata/processing_information/inputs/burst_location_parameters/last_valid_line"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">First valid sample for burst in measurement tiff</annotation>
+        </integer>
+        <integer name="/metadata/processing_information/inputs/burst_location_parameters/last_valid_sample"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en"
+                      units="unitless">Last valid sample for burst in measurement tiff</annotation>
+        </integer>
+        <string length="100"
+                name="/metadata/processing_information/inputs/burst_location_parameters/tiff_path"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Path to measurement tiff file inside the SAFE file</annotation>
+        </string>
         <!-- Processing information: parameters -->
         <bool length="100"
                 name="/metadata/processing_information/parameters/azimuth_fm_rate_applied"
