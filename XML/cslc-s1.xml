@@ -223,7 +223,7 @@
               width="64">
           <annotation app="conformance"
                       lang="en"
-                      units="meters">Beta naught</annotation>
+                      units="unitless">Beta naught</annotation>
         </real>
         <!-- 1D arrays-->
         <real name="/metadata/calibration_information/x_coordinates"
@@ -655,7 +655,7 @@
         </string>
         <string length="100"
                 name="/metadata/processing_information/inputs/orbit_files"
-                shape="scalar">
+                shape="orbitInputFiles">
                 <annotation app="conformance"
                             lang="en">List of input orbit files used</annotation>
         </string>
@@ -1236,21 +1236,21 @@
     <shape name="CSLCProductWidth"
            order="slowest...fastest">
            <annotation app="conformance"
-                       lang="en">Number of pixels in CSLC product imagery datasets</annotation>
+                       lang="en">Number of pixels in CSLC-S1 product imagery datasets</annotation>
            <dimension extent="0"
                       name="CSLCProductWidth"/>
     </shape>
     <shape name="CSLCProductLength"
            order="slowest...fastest">
            <annotation app="conformance"
-                       lang="en">Number of lines in CSLC product imagery datasets</annotation>
+                       lang="en">Number of lines in CSLC-S1 product imagery datasets</annotation>
            <dimension extent="0"
                       name="CSLCProductLength"/>
     </shape>
     <shape name="CSLCProductShape"
            order="slowest...fastest">
            <annotation app="conformance"
-                       lang="en">Shape associated with CSLC imagery datasets</annotation>
+                       lang="en">Shape associated with CSLC-S1 imagery datasets</annotation>
            <dimension extent="0"
                       name="CSLCProductLength"/>
            <dimension extent="0"
@@ -1274,7 +1274,7 @@
     <shape name="correctionsLUTShape"
            order="slowest...fastest">
            <annotation app="conformance"
-                       lang="en">Shape associated with in timing corrections look-up table datasets</annotation>
+                       lang="en">Shape associated with timing corrections look-up table datasets</annotation>
            <dimension extent="0"
                       name="correctionsLUTLength"/>
            <dimension extent="0"
@@ -1298,7 +1298,7 @@
     <shape name="LUTShape"
            order="slowest...fastest">
            <annotation app="conformance"
-                       lang="en">Shape associated with in calibration and noise corrections look-up table datasets</annotation>
+                       lang="en">Shape associated with calibration and noise corrections look-up table datasets</annotation>
            <dimension extent="0"
                       name="LUTLength"/>
            <dimension extent="0"
@@ -1311,6 +1311,13 @@
                        lang="en">Length of orbit state vector datasets</annotation>
            <dimension extent="0"
                       name="orbitLength"/>
+    </shape>
+    <shape name="orbitInputFiles"
+           order="slowest...fastest">
+           <annotation app="conformance"
+                       lang="en">Number of orbit input files</annotation>
+           <dimension extent="0"
+                      name="orbitInputFiles"/>
     </shape>
     <shape name="2DShape"
            order="slowest...fastest">
@@ -1343,7 +1350,5 @@
                       name="polynomialCoefficientsWidth"/>
            <dimension name="complex" extent="2"/>
     </shape>
-
-
    </product>
 </algorithm>
