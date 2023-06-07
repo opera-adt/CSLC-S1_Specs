@@ -918,30 +918,98 @@
                       lang="en"
                       units="unitless">Percentage of output pixels are valid</annotation>
         </real>
-        <bool length="100"
-                name="/metadata/quality_assurance/rfi_information/is_rfi_info_available"
+        <string length="100"
+                name="/metadata/quality_assurance/rfi_information/VV/is_rfi_info_available"
                 shape="scalar">
                 <annotation app="conformance"
                             lang="en">Whether or not RFI information is available</annotation>
-        </bool>
-        <string length="100"
-                name="/metadata/quality_assurance/rfi_information/rfi_burst_report"
-                shape="scalar">
-                <annotation app="conformance"
-                            lang="en">Burst RFI report</annotation>
         </string>
         <string length="100"
-                name="/metadata/quality_assurance/rfi_information/rfi_mitigation_domain"
+                name="/quality_assurance/rfi_information/VV/rfi_burst_report/azimuth_time"
                 shape="scalar">
                 <annotation app="conformance"
-                            lang="en">Burst RFI report</annotation>
+                            lang="en">Azimuth time of the burst report</annotation>
         </string>
-        <bool length="100"
-                name="/metadata/quality_assurance/rfi_information/rfi_mitigation_performed"
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/frequency_domain_rfi_report/isolated_rfi_report/max_percentage_affected_bw"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Max percentage of bandwidth affected by isolated RFI in a single line</annotation>
+        </real>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/ frequency_domain_rfi_report /isolated_rfi_report/percentage_affected_lines"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Percentage of level-0 lines affected by isolated RFI</annotation>
+        </real>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/frequency_domain_rfi_report/max_percentage_bw_affected_persisten_rfi"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Max percentage bandwidth affected by persistent RFI in a single processing block</annotation>
+        </real>
+        <integer name="/quality_assurance/rfi_information/VV/rfi_burst_report/frequency_domain_rfi_report/num_sub_blocks"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en">Number of sub-blocks in the current burst</annotation>
+        </integer>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/frequency_domain_rfi_report/percentage_blocks_persistent_rfi"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Percentage of processing blocks affected by persistent RFI. In this case, the RFI detection is performed on the mean PSD of each processing block</annotation>
+        </real>
+        <integer name="/quality_assurance/rfi_information/VV/rfi_burst_report/frequency_domain_rfi_report/sub_block_size"
+                 shape="scalar"
+                 signed="false"
+                 width="64">
+          <annotation app="conformance"
+                      lang="en">Number of lines in each sub-block</annotation>
+        </integer>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/in_band_out_band_power_ratio"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Ratio between the in-band and out-of-band power of the burst</annotation>
+        </real>
+        <string length="100"
+                name="/quality_assurance/rfi_information/VV/rfi_burst_report/swath"
                 shape="scalar">
                 <annotation app="conformance"
-                            lang="en">Whether or not the RFI mitigation step was performed</annotation>
-        </bool>
+                            lang="en">Swath of the burst</annotation>
+        </string>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/time_domain_rfi_report/avg_percentage_affected_samples"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Average percentage of affected Level-0 samples in the lines containing RFI</annotation>
+        </real>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/time_domain_rfi_report/max_percentage_affected_samples"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Maximum percentage of Level-0 samples affected by RFI in the same line</annotation>
+        </real>
+        <real name="/quality_assurance/rfi_information/VV/rfi_burst_report/time_domain_rfi_report/percentage_affected_lines"
+              shape="scalar"
+              width="32">
+          <annotation app="conformance"
+                      lang="en">Percentage of Level-0 lines affected by RFI</annotation>
+        </real>
+        <string length="100"
+                name="/quality_assurance/rfi_information/VV/rfi_burst_report/rfi_mitigation_domain"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Domain the RFI mitigation step was performed</annotation>
+        </string>
+        <string length="100"
+                name="/quality_assurance/rfi_information/VV/rfi_burst_report/rfi_mitigation_performed"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Activation strategy of the RFI mitigation [“never”, “BasedOnNoiseMeas”, “always”]</annotation>
+        </string>
         <real name="/metadata/quality_assurance/statistics/data/VV/phase/max"
               shape="scalar"
               width="64">
