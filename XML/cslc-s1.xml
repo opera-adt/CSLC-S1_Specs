@@ -597,8 +597,7 @@
               shape="scalar"
               width="64">
           <annotation app="conformance"
-                      lang="en"
-                      units="unitless">Mean of the azimuth FM-rate polynomial</annotation>
+                      lang="en">Mean of the azimuth FM-rate polynomial</annotation>
         </real>
         <integer name="metadata/processing_information/input_burst_metadata/azimuth_fm_rate/order"
                  shape="scalar"
@@ -636,8 +635,7 @@
               shape="scalar"
               width="64">
           <annotation app="conformance"
-                      lang="en"
-                      units="unitless">Standard deviation of the Doppler polynomial</annotation>
+                      lang="en">Standard deviation of the Doppler polynomial</annotation>
         </real>
         <!-- Processing information: inputs -->
         <string length="100"
