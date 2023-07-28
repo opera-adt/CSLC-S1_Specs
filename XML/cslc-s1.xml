@@ -730,6 +730,12 @@
               <annotation app="conformance"
                           lang="en">If True, dry troposphere correction based on weather model has been applied</annotation>
         </bool>
+        <string length="100"
+                name="/metadata/processing_information/parameters/elevation_antenna_pattern_correction_applied"
+                shape="scalar">
+                <annotation app="conformance"
+                            lang="en">Elevation antenna pattern correction. OPERA: correction applied by s1-reader and COMPASS. ESA: correction was applied by ESA. None: when the correction was not applied.</annotation>
+        </string>
         <bool name="/metadata/processing_information/parameters/ellipsoidal_flattening_applied"
               shape="scalar">
               <annotation app="conformance"
