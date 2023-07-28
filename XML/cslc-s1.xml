@@ -801,13 +801,6 @@
                       lang="en"
                       units="seconds">Azimuth FM-rate mismatch mitigation (azimuth) correction as a function of slant range and azimuth time</annotation>
         </real>
-        <real name="/metadata/processing_information/timing_corrections/azimuth_solid_earth_tides"
-              shape="correctionsLutShape"
-              width="32">
-          <annotation app="conformance"
-                      lang="en"
-                      units="seconds">Solid Earth tides (azimuth) correction as a function of slant range and azimuth time</annotation>
-        </real>
         <real name="/metadata/processing_information/timing_corrections/bistatic_delay"
               shape="correctionsLutShape"
               width="32">
@@ -835,20 +828,6 @@
           <annotation app="conformance"
                       lang="en"
                       units="meters">Solid Earth tides (range) correction as a function of slant range and azimuth time</annotation>
-        </real>
-        <real name="/metadata/processing_information/timing_corrections/wet_los_troposphere_delay"
-              shape="correctionsLutShape"
-              width="32">
-          <annotation app="conformance"
-                      lang="en"
-                      units="meters">Wet LOS troposphere delay correction as a function of slant range and azimuth time</annotation>
-        </real>
-        <real name="/metadata/processing_information/timing_corrections/dry_los_troposphere_delay"
-              shape="correctionsLutShape"
-              width="32">
-          <annotation app="conformance"
-                      lang="en"
-                      units="meters">Dry LOS troposphere delay correction as a function of slant range and azimuth time</annotation>
         </real>
         <string length="100"
                 name="/metadata/processing_information/timing_corrections/extended_coefficients/doppler_centroid_azimuth_time"
