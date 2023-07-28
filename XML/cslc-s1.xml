@@ -1074,30 +1074,6 @@
           <annotation app="conformance"
                       lang="en">STD of the bistatic delay</annotation>
         </real>
-        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/max"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Max of the azimuth solid Earth tides</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/mean"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Mean of the azimuth solid Earth tides</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/min"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Min of the azimuth solid Earth tides</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/azimuth_solid_earth_tides/std"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">STD of the azimuth solid Earth tides</annotation>
-        </real>
         <real name="/quality_assurance/statistics/timing_corrections/los_solid_earth_tides/max"
               shape="scalar"
               width="64">
@@ -1169,54 +1145,6 @@
               width="64">
           <annotation app="conformance"
                       lang="en">STD of the los ionosphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/max"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Max of the dry troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/mean"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Mean of the dry troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/min"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Min of the dry troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/dry_los_troposphere_delay/std"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">STD of the dry troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/max"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Max of the wet troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/mean"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Mean of the wet troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/min"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">Min of the wet troposphere delay</annotation>
-        </real>
-        <real name="/quality_assurance/statistics/timing_corrections/wet_los_troposphere_delay/std"
-              shape="scalar"
-              width="64">
-          <annotation app="conformance"
-                      lang="en">STD of the wet troposphere delay</annotation>
         </real>
       </nodes>
     </science>
