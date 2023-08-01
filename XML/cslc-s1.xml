@@ -414,7 +414,7 @@
                             lang="en">ISCE3 version used for processing</annotation>
         </string>
         <string length="100"
-                name="/metadata/processing_information/algorithms/s1Reader_version"
+                name="/metadata/processing_information/algorithms/s1_reader_version"
                 shape="scalar">
                 <annotation app="conformance"
                             lang="en">S1 reader version used for processing</annotation>
@@ -639,10 +639,10 @@
         </real>
         <!-- Processing information: inputs -->
         <string length="100"
-                name="/metadata/processing_information/inputs/calibration_file"
+                name="/metadata/processing_information/inputs/calibration_files"
                 shape="scalar">
                 <annotation app="conformance"
-                            lang="en">Input calibration file used</annotation>
+                            lang="en">List of input calibration files used for processing</annotation>
         </string>
         <string length="100"
                 name="/metadata/processing_information/inputs/dem_source"
@@ -657,10 +657,10 @@
                             lang="en">Input L1 RSLC file used</annotation>
         </string>
         <string length="100"
-                name="/metadata/processing_information/inputs/noise_file"
+                name="/metadata/processing_information/inputs/noise_files"
                 shape="scalar">
                 <annotation app="conformance"
-                            lang="en">Input noise file used</annotation>
+                            lang="en">List of input noise file used for processing</annotation>
         </string>
         <string length="100"
                 name="/metadata/processing_information/inputs/orbit_files"
